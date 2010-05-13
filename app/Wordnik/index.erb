@@ -1,0 +1,13 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		Today's Word
+	</h1>
+</div>
+
+<ul id="wordniks" title="Today's Word" selected="true">
+  <li style='background-color: gray;'><%= @word['wordstring'] %></li>
+	<% @word['definition'].each do |definition| %>
+	  <li><%= definition['text'] %></li>
+	<% end %>
+	<li><%= link_to 'Random Word', { :action => 'random' } %></li>
+</ul>
