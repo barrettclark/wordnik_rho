@@ -2,5 +2,4 @@
 # You can add more methods here
 
 class Wordnik
-  #add model specifc code here
 end
