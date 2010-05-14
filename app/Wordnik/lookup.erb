@@ -1,0 +1,19 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		Dictionary
+	</h1>
+</div>
+
+<form title="Dictionary" 
+	  class="panel"
+	  id="wordnik_lookup" 
+	  method="POST" 
+	  action="<%=url_for(:action => :definition)%>" selected="true">
+	<fieldset>
+		  <div class="row">
+			  <label>Find: </label>
+			  <input type="text" name="wordnik[word]"/>
+		  </div>
+	</fieldset>
+	<input type="submit" value="Lookup"/>
+</form>
