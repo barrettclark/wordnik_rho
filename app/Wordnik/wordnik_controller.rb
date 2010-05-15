@@ -17,7 +17,7 @@ class WordnikController < Rho::RhoController
   def lookup    
   end
   def definition
-    res = definitions(params['word'])
+    res = definitions(@params['word'])
     @word = res['body']
     render
   end
@@ -26,7 +26,7 @@ class WordnikController < Rho::RhoController
   def api_call(from)
     Rho::AsyncHttp.get(
       :url => "http://api.wordnik.com/api/#{from}",
-      :headers => {'api_key' => ''}
+      :headers => {'api_key' => '93258932a2cf8104dce2604abe90708fa097c4d18b9a26e52'}
     )
   end
 
