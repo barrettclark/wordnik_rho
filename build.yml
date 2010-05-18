@@ -1,15 +1,18 @@
-sdk: "/Users/bclark1/.rvm/gems/ruby-1.9.1-p378@rho/gems/rhodes-1.5.5"
+--- 
+sdk: /Users/dmsbclar/.rvm/gems/ruby-1.9.1-p378@rho/gems/rhodes-1.5.5
 sdkversion: 1.5.5
-name: wordnik_rho
+name: Wordnik
 version: 1.0
 vendor: rhomobile
 bbver: 4.6
-wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+wmsdk: Windows Mobile 6 Professional SDK (ARMV4I)
 applog: rholog.txt
-iphone:
+iphone: 
   configuration: Debug
   sdk: iphonesimulator3.0
-  provisionprofile:
-  codesignidentity:
-  entitlements:
-extensions: ["extension-name-here", "second-extension-name"]
+  provisionprofile: 
+  codesignidentity: 
+  entitlements: 
+extensions: 
+- extension-name-here
+- second-extension-name
