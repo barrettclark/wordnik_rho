@@ -1,9 +1,14 @@
 <div class="toolbar">
 	<h1 id="pageTitle">
-		Random Word
+		<%= @definitions[0]['headword'] %>
 	</h1>
 </div>
 
 <ul id="wordniks" title="Random Word" selected="true">
-  <li style='background-color: gray;'><%= @word['wordstring'] %></li>
+	<% @definitions.each do |definition| %>
+	  <li>
+	    (<%= definition['partOfSpeech'] %>)
+	    <%= definition['text'] %>
+	  </li>
+	<% end %>
 </ul>
