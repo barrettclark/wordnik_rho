@@ -1,19 +1,14 @@
-<div class="toolbar">
-	<h1 id="pageTitle">
-		Dictionary
-	</h1>
+<div id="home">
+  <form class="form" id="wordnik_lookup" method="POST" action="<%=url_for(:action => :definition)%>">
+    <div class="toolbar">
+      <h1>Dictionary</h1>
+    </div>
+	  <ul class="rounded">
+	    <li>
+  		  <label>Find: </label>
+  		  <input type="text" name="word" />
+	    </li>
+	  </ul>
+  	<a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">Lookup</a>
+  </form>
 </div>
-
-<form title="Dictionary" 
-	  class="panel"
-	  id="wordnik_lookup" 
-	  method="POST" 
-	  action="<%=url_for(:action => :definition)%>" selected="true">
-	<fieldset>
-		  <div class="row">
-			  <label>Find: </label>
-			  <input type="text" name="word"/>
-		  </div>
-	</fieldset>
-	<input type="submit" value="Lookup"/>
-</form>
