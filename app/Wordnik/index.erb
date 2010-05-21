@@ -4,9 +4,18 @@
 	</h1>
 </div>
 
-<ul id="wordniks" title="Today's Word" selected="true">
-  <li style='background-color: gray;'><%= @word['wordstring'] %></li>
-	<% @word['definition'].each do |definition| %>
-	  <li><%= definition['text'] %></li>
-	<% end %>
-</ul>
+<div id="home">
+  <ul id="home" title="Today's Word" selected="true">
+    <li style='background-color: gray;'><%= @word['wordstring'] %></li>
+  	<% @word['definition'].each do |definition| %>
+  	  <li><%= definition['text'] %></li>
+  	<% end %>
+  	<li><%=link_to "Show Examples", '#examples' %></li>
+  </ul>
+</div>
+
+<div id="examples">
+  <ul id="example" title="Examples" selected="false">
+    Oh Hai!
+  </ul>
+</div>
