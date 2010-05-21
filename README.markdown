@@ -10,6 +10,7 @@ This is a Rhodes app that taps into the Wordnik API.
 * gem install rhodes
 * rhodes-setup
 * clone this project
+* add your API key to app/Wordnik/wordnik_controller.rb
 * rake run:iphone
 * rejoice
 
