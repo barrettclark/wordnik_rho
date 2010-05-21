@@ -1,21 +1,39 @@
-<div class="toolbar">
-	<h1 id="pageTitle">
-		Today's Word
-	</h1>
-</div>
-
 <div id="home">
-  <ul id="home" title="Today's Word" selected="true">
-    <li style='background-color: gray;'><%= @word['wordstring'] %></li>
+  <div class="toolbar">
+    <h1>WotD</h1>
+  </div>
+  <h2><%= @word['wordstring'] %></h2>
+  <ul class="rounded">
   	<% @word['definition'].each do |definition| %>
-  	  <li><%= definition['text'] %></li>
+	  <li><%= definition['text'] %></li>
   	<% end %>
-  	<li><%=link_to "Show Examples", '#examples' %></li>
-  </ul>
+  	<li class="arrow">
+  	  <%= link_to 'Examples', '#examples' %>
+  	  <small class="counter"><%= @word['example'].size %></small>
+  	</li>
+    <li class="arrow"><%= link_to 'Note', '#note' %></li>
 </div>
 
 <div id="examples">
-  <ul id="example" title="Examples" selected="false">
-    Oh Hai!
+  <div class="toolbar">
+    <h1>Examples</h1>
+	  <%= link_to 'Home', '#a', "class=\"back\"" %>
+  </div>
+  <h2><%= @word['wordstring'] %></h2>
+  <ul class="rounded">
+    <% @word['example'].each do |example| %>
+    <li><%= example['text'] %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="note">
+  <div class="toolbar">
+    <h1>Notes</h1>
+	  <%= link_to 'Home', '#a', "class=\"back\"" %>
+  </div>
+  <h2><%= @word['wordstring'] %></h2>
+  <ul class="rounded">
+    <li><%= @word['note'] %></li>
   </ul>
 </div>
