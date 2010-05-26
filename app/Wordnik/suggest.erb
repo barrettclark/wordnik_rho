@@ -1,0 +1,12 @@
+<div id="home">
+  <div class="toolbar">
+    <h2><%= "#{@word} not found" %></h2>
+  </div>
+  <h1>Try one of these...</h1>
+  <ul class="rounded">
+  	<% @suggestions['suggestions'].each do |suggest| %>
+	  <li>
+	    <%= link_to suggest, :action => :definition, :query => { :word => suggest } %>
+	  </li>
+  	<% end %>
+</div>

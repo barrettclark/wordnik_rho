@@ -2,18 +2,14 @@ require 'rho/rhocontroller'
 
 class WordnikController < Rho::RhoController
 
-  # GET /Wordnik
   def index
-    res = api_call("wordoftheday.json")
-    @word = res['body']
+    @word = api_call("wordoftheday.json")['body']
   end
+  
   def random
     res1 = api_call("words.json/randomWord?hasDictionaryDef=true")
-    # puts "\n\n#{res1}\n\n"
     @word = urlencode(res1['body']['wordstring'])
-    res2 = api_call("word.json/#{@word}/definitions")
-    @definitions = res2['body']
-    # puts "\n\n>>> #{@definitions.class} #{@definitions} <<<\n\n"
+    @definitions = api_call("word.json/#{@word}/definitions")['body']
     if @definitions.class == String
       render :action => 'unfound'
     else
@@ -29,10 +25,25 @@ class WordnikController < Rho::RhoController
   end
   
   def definition
-    res = api_call("word.json/#{@params['word']}/definitions")
-    @definitions = res['body']
-    puts "#{@definitions}"
-    render :action => :random
+    @word = @params['word']
+    @definitions = api_call("word.json/#{@word}/definitions")['body']
+    if @definitions == Array.new
+      @suggestions = api_call("word.json/#{@word}?useSuggest=true&literal=false")['body']
+      if @suggestions['suggestions']
+        render :action => 'suggest'
+      else
+        @definitions = api_call("word.json/#{@suggestions['wordstring']}/definitions")['body']
+        if @definitions.size > 0
+          render :action => 'random'
+        else
+          render :action => 'unfound'
+        end
+      end
+    elsif @definitions.class == String
+      render :action => 'unfound'
+    else
+      render :action => 'random'
+    end
   end
   
   protected

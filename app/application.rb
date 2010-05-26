@@ -4,6 +4,8 @@ class AppApplication < Rho::RhoApplication
   def initialize
     # icons by Joseph Wain / glyphish.com
     @@toolbar = [
+      { :action => :back },
+      { :action => :forward },
       { :action => :home },
       { :action => :separator },
       { :action => '/app/Wordnik/random', :icon => '/public/images/05-shuffle.png' },
