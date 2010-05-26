@@ -10,7 +10,7 @@ class WordnikController < Rho::RhoController
     res1 = api_call("words.json/randomWord?hasDictionaryDef=true")
     @word = urlencode(res1['body']['wordstring'])
     @definitions = api_call("word.json/#{@word}/definitions")['body']
-    if @definitions.class == String
+    if @definitions.class == String || @definitions == Array.new
       render :action => 'unfound'
     else
       render
